@@ -1,0 +1,50 @@
+<HTML>
+    <SCRIPT LANGUAGE="JavaScript">
+    const LIMITE_PRODUCTOS = 15;
+    const PORCENTAJE_IVA = 0.16;
+    const DESCUENTO_1000 = 0.1;
+    const DESCUENTO_2000 = 0.15;
+    const DESCUENTO_4000 = 0.2;
+    
+    let numeroProductos = 0;
+    let totalSinIVA = 0;
+    
+    alert("¡Bienvenido/a a la caja rápida del supermercado!");
+    let iniciarCobranza = prompt("¿Desea iniciar la cobranza? (S/N)");
+    
+    if (iniciarCobranza === "S" || iniciarCobranza === "s") {
+      while (numeroProductos < LIMITE_PRODUCTOS) {
+        let costoProducto = prompt(`Ingrese el costo del producto ${numeroProductos + 1} (o presione Enter para finalizar):`);
+        if (costoProducto === "" || costoProducto === null) {
+          break;
+        } else {
+          totalSinIVA += parseFloat(costoProducto);
+          numeroProductos++;
+        }
+      }
+    
+      let totalConIVA = totalSinIVA * (1 + PORCENTAJE_IVA);
+    
+      let descuento = 0;
+      if (totalConIVA > 4000) {
+        descuento = DESCUENTO_4000;
+      } else if (totalConIVA > 2000) {
+        descuento = DESCUENTO_2000;
+      } else if (totalConIVA > 1000) {
+        descuento = DESCUENTO_1000;
+      }
+    
+      let totalConDescuento = totalConIVA * (1 - descuento);
+    
+      alert(`Total sin IVA: $${totalSinIVA.toFixed(2)}
+    IVA: $${(totalSinIVA * PORCENTAJE_IVA).toFixed(2)}
+    Total con IVA: $${totalConIVA.toFixed(2)}
+    Descuento: ${(descuento * 100).toFixed(0)}%
+    Total con descuento: $${totalConDescuento.toFixed(2)}`);
+    } else {
+      alert("¡Gracias por visitar nuestro supermercado!");
+    }
+    
+    </SCRIPT>
+    </HTML>
+    
