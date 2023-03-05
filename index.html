@@ -1,50 +1,153 @@
-<HTML>
-    <SCRIPT LANGUAGE="JavaScript">
-    const LIMITE_PRODUCTOS = 15;
-    const PORCENTAJE_IVA = 0.16;
-    const DESCUENTO_1000 = 0.1;
-    const DESCUENTO_2000 = 0.15;
-    const DESCUENTO_4000 = 0.2;
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de unidades</title>
+    <script>
+        defer
+        src="https://app.embed.im/snow.js"
+        </script>  
+    <link rel="stylesheet" href="estilos.css">
+
+  </head>
+  <body>
+   <center> <h1>Conversor de unidades</h1></center>
+   <br><br>
     
-    let numeroProductos = 0;
-    let totalSinIVA = 0;
+      <label for="valor">Valor:</label>
+      <input type="number" id="valor" name="valor">
+      <br><br>
+      <label for="entrada">Unidad de entrada:</label>
+      <select id="entrada" name="entrada">
+        <option value="cm">Centímetros</option>
+        <option value="m">Metros</option>
+        <option value="km">Kilómetros</option>
+        <option value="in">Pulgadas</option>
+        <option value="pies">Pies</option>
+        <option value="yd">Yardas</option>
+        <option value="mi">Millas</option>
+        <option value="mm">Milimetro</option>
+        <option value="m3">Metro Cubico(m³)</option>
+        <option value="cm3">Centimetro Cubico(cm³)</option>
+        <option value="l">Litros</option>
+        <option value="ml">Miilitros</option>
+        <option value="g">Galon</option>
+        <option value="dm3">Decimetro Cubico (dm³)</option>
+        <option value="ton">Tonelada</option>
+        <option value="kg">Kilogramo</option>
+        <option value="n">Newton</option>
+        <option value="dina">Dinas</option>
+        <option value="h">Horas</option>
+        <option value="s">Segundos</option>
+        <option value="mn">Minutos</option>
+        <option value="j">Julio</option>
+        <option value="cal">Caloria</option>
+        <option value="m2">Metro Cuadrado</option>
+        <option value="cm2">Centimetro Cuadrado</option>
+        <option value="p2">Pie Cuadrado</option>
+        <option value="p3">Pie Cubico</option>
+        <option value="yd2">Yarda Cuadrada </option>
+        <option value="mm2">Milimetro Cuadrado </option>
+        <option value="mm3">Milimetro Cubico </option>
+        <option value="gr">Gramo </option>
+      </select>
+      <br><br>
+      <label for="salida">Unidad de salida:</label>
+      <select id="salida" name="salida">
+        <option value="cm">Centímetros</option>
+        <option value="m">Metros</option>
+        <option value="km">Kilómetros</option>
+        <option value="in">Pulgadas</option>
+        <option value="pies">Pies</option>
+        <option value="yd">Yardas</option>
+        <option value="mi">Millas</option>
+        <option value="mm">Milimetro</option>
+        <option value="m3">Metro Cubico(m³)</option>
+        <option value="cm3">Centimetro Cubico(cm³)</option>
+        <option value="l">Litros</option>
+        <option value="ml">Mililitros</option>
+        <option value="g">Galon</option>
+        <option value="dm3">Decimetro Cubico (dm³)</option>
+        <option value="ton">Tonelada</option>
+        <option value="kg">Kilogramo</option>
+        <option value="n">Newton</option>
+        <option value="dina">Dinas</option>
+        <option value="h">Horas</option>
+        <option value="s">Segundos</option>
+        <option value="mn">Minutos</option>
+        <option value="j">Julio</option>
+        <option value="cal">Caloria</option>
+        <option value="m2">Metro Cuadrado</option>
+        <option value="cm2">Centimetro Cuadrado</option>
+        <option value="p2">Pie Cuadrado</option>
+        <option value="p3">Pie Cubico</option>
+        <option value="yd2">Yarda Cuadrada </option>
+        <option value="mm2">Milimetro Cuadrado </option>
+        <option value="mm3">Milimetro Cubico </option>
+        <option value="gr">Gramo </option>
+      </select>
+      <br><br>
+      <label for="resultado">Resultado:</label>
+      <input type="number" id="resultado" name="resultado" disabled>
+      
+      <br><br>
+        <button onclick="convertir()">Convertir</button>
+      <br><br>
     
-    alert("¡Bienvenido/a a la caja rápida del supermercado!");
-    let iniciarCobranza = prompt("¿Desea iniciar la cobranza? (S/N)");
-    
-    if (iniciarCobranza === "S" || iniciarCobranza === "s") {
-      while (numeroProductos < LIMITE_PRODUCTOS) {
-        let costoProducto = prompt(`Ingrese el costo del producto ${numeroProductos + 1} (o presione Enter para finalizar):`);
-        if (costoProducto === "" || costoProducto === null) {
-          break;
-        } else {
-          totalSinIVA += parseFloat(costoProducto);
-          numeroProductos++;
-        }
-      }
-    
-      let totalConIVA = totalSinIVA * (1 + PORCENTAJE_IVA);
-    
-      let descuento = 0;
-      if (totalConIVA > 4000) {
-        descuento = DESCUENTO_4000;
-      } else if (totalConIVA > 2000) {
-        descuento = DESCUENTO_2000;
-      } else if (totalConIVA > 1000) {
-        descuento = DESCUENTO_1000;
-      }
-    
-      let totalConDescuento = totalConIVA * (1 - descuento);
-    
-      alert(`Total sin IVA: $${totalSinIVA.toFixed(2)}
-    IVA: $${(totalSinIVA * PORCENTAJE_IVA).toFixed(2)}
-    Total con IVA: $${totalConIVA.toFixed(2)}
-    Descuento: ${(descuento * 100).toFixed(0)}%
-    Total con descuento: $${totalConDescuento.toFixed(2)}`);
-    } else {
-      alert("¡Gracias por visitar nuestro supermercado!");
-    }
-    
-    </SCRIPT>
-    </HTML>
-    
+  
+    <script>
+
+function convertir() {
+   
+  const valor = +document.getElementById("valor").value;
+  const entrada = document.getElementById("entrada").value;
+  const salida = document.getElementById("salida").value;
+
+  const factores = {
+    cm: { m: 0.01, km: 0.00001, in: 0.393701, pies: 0.0328084, yd: 0.0109361, mi: 0.00000621371, mm: 10 },
+    m: { cm: 100, km: 0.001, in: 39.3701, pies: 3.28084, yd: 1.09361, mi: 0.000621371, mm: 1000 },
+    km: { cm: 100000, m: 1000, in: 39370.1, pies: 3280.84, yd: 1093.61, mi: 0.621371, mm: 1000000 },
+    in: { cm: 2.54, m: 0.0254, km: 0.0000254, pies: 0.0833333, yd: 0.0277778, mi: 0.0000157828, mm: 25.4 },
+    pies: { cm: 30.48, m: 0.3048, km: 0.0003048, in: 12, yd: 0.333333, mi: 0.000189394, mm: 304.8 },
+    yd: { cm: 91.44, m: 0.9144, km: 0.0009144, in: 36, pies: 3, mi: 0.000568182, mm: 914.4 },
+    mi: { cm: 160934, m: 1609.34, km: 1.60934, in: 63360, pies: 5280, yd: 1760, mm: 1609340 },
+    mm: { cm: 0.1, m: 0.001, km: 0.000001, in: 0.0393701, pies: 0.00328084, yd: 0.00109361, mi: 0.000000621371 },
+    m3: {ml:1000000, l:1000, g:264.172,cm3:1e+6,dm3:1000,p3:35.3147},
+    cm3:{ml:1, l:0.001,dm3:0.001,m3:1e-6,g:0.000264172,mm3:1000},
+    ml: {m3:0.000001, l:0.001, g:0.000264172,cm3:1},
+    l:  {m3:0.001,ml:1000,g:0.264172,dm3:1,cm3:1000 },
+    g:  {m3:0.00378541,ml:3785.41,cm3:3785.41,l:3.78541,dm3:3.78541},
+    dm3:{m3:0.001,ml:1000,cm3:1000,l:1,g:0.219969},   
+    ton:{kg:1000},
+    kg:{ton:0.001,gr:1000},
+    n:{dina:100000},
+    dina:{n:0.00001},
+    h:{mn:60,s:3600},
+    s:{h:0.000278,mn:0.0166667},
+    mn:{h:0.0166667,s:60},
+    j:{cal:0.239},
+    cal:{j:4.184},
+    m2:{cm2:10000,p2:10.7639,yd2:1.19599 },
+    yd2:{m2:0.836127},
+    p2:{m2:0.092903 },
+    cm2:{m2:0.0001,mm2:100 },
+    mm2:{cm2:0.01 },
+    p3:{m3:0.0283168},
+    mm3:{cm3:0.001},
+    gr:{kg:0.001},
+  };
+
+  const factor = factores[entrada][salida];
+  const resultado = (valor * factor);
+ 
+  document.getElementById("resultado").value = resultado;
+  
+}
+ 
+
+
+          
+           </script>
+</body>
+</html>
