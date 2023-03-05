@@ -1,0 +1,88 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://impulsomatematico.files.wordpress.com/2019/04/pixel-cells-3976303_opt.png');
+    background-repeat: no-repeat;
+    background-size: -0cap;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    
+  }
+  
+  h1 {
+    margin-top: 0;
+    text-align: center;
+   font-family: cursive;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  label {
+    display: block;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  select,
+  input {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  select:focus,
+  input:focus {
+    outline: none;
+    border-color: #aaa;
+  }
+  
+  body {
+    background-color: #eee;
+    text-align: center;
+  }
+  
+  button {
+     font-family: 'Courier New', Courier, monospace;
+    background-color: transparent;
+    font-weight: semibold;
+    color: #444;
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+    border: 2px solid #eee;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 1s ease;
+    box-shadow: 0.5em 0.5rem 1rem #ccc, -0.5em -0.5rem 1rem #fff;
+  }
+  
+  button:hover {
+    box-shadow: 0.5em 0.5rem 1rem #fff, -0.5em -0.5rem 1rem #ccc;
+  }
+  
+  button:active {
+    box-shadow: inset 0.2rem 0.2rem 1rem #fff,
+      inset -0.2rem -0.2rem 1rem #ccc;
+  }
+  
+  input[disabled] {
+    background-color: #eee;
+    color: #888;
+  }
+  
